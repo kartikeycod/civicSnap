@@ -6,7 +6,7 @@ import {
   AreaChart, Area,
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar
 } from "recharts";
-import "./CivicDashboard.css";
+import "./civicDashboard.css";
 
 // ---------- Sample Data ----------
 const pieData1 = [
