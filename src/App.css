@@ -1,0 +1,312 @@
+/* General Reset */
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: linear-gradient(145deg, #dd5422, rgb(158, 156, 156), #0cc62b) !important;
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite;
+  color: #222;
+  font-smooth: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  line-height: 1.6;
+}
+
+/* Animated Gradient Reusable Class */
+.animated-gradient {
+  background: linear-gradient(145deg, #dd5422, rgb(158, 156, 156), #0cc62b);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  color: white;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar {
+  background: linear-gradient(145deg, #dd5422, rgb(158, 156, 156), #0cc62b);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite;
+}
+
+.logo {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+.nav-links li a:hover {
+  color: #1323d7;
+  background: rgba(45, 45, 44, 0.15);
+  box-shadow: 0 4px 15px rgba(19, 136, 194, 0.3);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 110px 20px 120px;
+  color: white;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+  animation: fadeInSlideDown 1s ease forwards;
+}
+.hero {
+  background: linear-gradient(145deg, #dd5422, rgb(158, 156, 156), #0cc62b);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite, fadeInSlideDown 1s ease forwards;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.15);
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 35px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+  opacity: 0.9;
+  letter-spacing: 0.02em;
+}
+
+.hero .btn {
+  padding: 14px 32px;
+  background: #ffd700;
+  color: #222;
+  font-weight: 700;
+  border-radius: 35px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
+}
+
+.hero .btn:hover {
+  background: #f4b400;
+  transform: scale(1.08);
+  box-shadow: 0 6px 25px rgba(244, 180, 0, 0.5);
+}
+
+/* Features Section */
+.features {
+  padding: 70px 20px;
+  text-align: center;
+  animation: fadeInUp 1s ease forwards;
+}
+.features {
+  background: linear-gradient(145deg, #dd5422, rgb(158, 156, 156), #0cc62b);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite, fadeInUp 1s ease forwards;
+}
+
+.features h2 {
+  font-size: 2.2rem;
+  margin-bottom: 38px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #3a3a3a;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 26px;
+}
+
+.feature-card {
+  background: linear-gradient(145deg, #78c0dd, #c295c7);
+  padding: 28px 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(45, 137, 239, 0.3);
+}
+
+.feature-card h3 {
+  color: #2d89ef;
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+/* About Section */
+.about {
+  padding: 70px 20px;
+  text-align: center;
+  animation: fadeIn 1.2s ease forwards;
+}
+.about {
+  background: linear-gradient(145deg, #dd5422, rgb(158, 156, 156), #0cc62b);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite, fadeIn 1.2s ease forwards;
+}
+
+#text {
+  color: #f5eded;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+.about h2 {
+  font-size: 2.2rem;
+  margin-bottom: 28px;
+  font-weight: 700;
+  color: #f5eded;
+  letter-spacing: 0.04em;
+}
+
+/* Contact Section */
+.contact {
+  padding: 70px 20px;
+  text-align: center;
+  animation: fadeInUp 1.3s ease forwards;
+}
+.contact {
+  background: linear-gradient(145deg, #dd5422, rgb(158, 156, 156), #0cc62b);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite, fadeInUp 1.3s ease forwards;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 28px;
+  font-weight: 700;
+  color: #fcf4f4;
+}
+
+.contact form {
+  max-width: 440px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact input,
+.contact textarea {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: border-color 0.3s ease;
+  box-shadow: inset 0 1px 3px #f0f0f0;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  border-color: #3668f4;
+  box-shadow: 0 0 8px rgba(54, 104, 244, 0.4);
+}
+
+.contact button {
+  padding: 14px;
+  background: #3668f4;
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(54, 104, 244, 0.4);
+  transition: background 0.4s ease, transform 0.2s ease;
+}
+
+.contact button:hover {
+  background: #254ea1;
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  color: white;
+  text-align: center;
+  padding: 18px;
+  margin-top: -2px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  box-shadow: 0 -3px 15px rgba(54, 104, 244, 0.7);
+}
+footer {
+  background: linear-gradient(145deg, #dd5422, rgb(158, 156, 156), #0cc62b);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite;
+}
+
+/* Animations */
+@keyframes fadeInSlideDown {
+  0% { opacity: 0; transform: translateY(-25px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Gradient Shift Animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
