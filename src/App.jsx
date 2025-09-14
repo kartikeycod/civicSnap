@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import "./App.css";
 
+
 // Components
 import LoginApp from "./Loginapp";
 import CivicReportDashboard from "./CivicReportDashboard";
@@ -9,9 +10,18 @@ import CivicDashboard from "./civicDashboard";
 import ReportIssue from "./ReportIssue";
 import RecentReports from "./RecentReports";
 import Community from "./Community";
-// import "./RecentReport.css";
 
 function Home({ isAuthenticated, handleLogout }) {
+  const navigate = useNavigate();
+
+  // Intercept feature navigation to require login
+  function requireAuth(e) {
+    if (!isAuthenticated) {
+      e.preventDefault();
+      navigate("/login");
+    }
+  }
+
   return (
     <div>
       {/* Navbar */}
@@ -27,8 +37,7 @@ function Home({ isAuthenticated, handleLogout }) {
               <li>
                 <a
                   href="https://user-dashboard-kappa-eight.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  onClick={requireAuth}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   Track My Progress
@@ -42,27 +51,31 @@ function Home({ isAuthenticated, handleLogout }) {
         </ul>
       </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="hero">
-        <h1>
-          Report Civic Issues. Together, We Make Change. <br /> हम बदलेंगे - देश बदलेगा
-        </h1>
-        <p>
-          Empowering citizens to report, track, and resolve issues in their community.
-        </p>
+     {/* Hero Section */}
+<section id="home" className="hero">
+  <h1>
+    Report Civic Issues. Together, We Make Change. <br /> हम बदलेंगे - देश बदलेगा
+  </h1>
+  <p>
+    Empowering citizens to report, track, and resolve issues in their community.
+  </p>
 
-        <a
-          href="https://civic-dashboard-api.vercel.app/"
-          className="btn"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          Report Now
-        </a>
-        <br /><br /><br />
-        {/* <h4>“Made with ❤️ by Team Pinnacle”</h4> */}
-      </section>
+  <button
+    className="btn"
+    onClick={(e) => {
+      if (!isAuthenticated) {
+        e.preventDefault();
+        navigate("/login");
+      } else {
+        window.location.href = "https://civic-dashboard-api.vercel.app/";
+      }
+    }}
+  >
+    Report Now
+  </button>
+  <br /><br /><br />
+</section>
+
 
       {/* Features Section */}
       <section className="features">
@@ -73,8 +86,7 @@ function Home({ isAuthenticated, handleLogout }) {
             <h3>
               <a
                 href="https://civic-dashboard-api.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={requireAuth}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 📸 REPORT ISSUES
@@ -87,8 +99,7 @@ function Home({ isAuthenticated, handleLogout }) {
             <h3>
               <a
                 href="https://user-dashboard-kappa-eight.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={requireAuth}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 📊 TRACK PROGRESS
@@ -101,8 +112,7 @@ function Home({ isAuthenticated, handleLogout }) {
             <h3>
               <a
                 href="https://civic-dashboard-api.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={requireAuth}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 🗺️ THE MAP DASHBOARD
@@ -116,8 +126,7 @@ function Home({ isAuthenticated, handleLogout }) {
               🤝{" "}
               <a
                 href="https://new-admin-db.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={requireAuth}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 LOGIN AS AN ADMIN
@@ -130,6 +139,7 @@ function Home({ isAuthenticated, handleLogout }) {
             <h3>
               <Link
                 to={isAuthenticated ? "/recent-reports" : "/login"}
+                onClick={requireAuth}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 📰 RECENT REPORTS
@@ -142,6 +152,7 @@ function Home({ isAuthenticated, handleLogout }) {
             <h3>
               <Link
                 to={isAuthenticated ? "/analysis" : "/login"}
+                onClick={requireAuth}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 📈 ANALYSIS SO FAR
@@ -154,6 +165,7 @@ function Home({ isAuthenticated, handleLogout }) {
             <h3>
               <Link
                 to={isAuthenticated ? "/community" : "/login"}
+                onClick={requireAuth}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 🤝 COMMUNITY
@@ -166,8 +178,7 @@ function Home({ isAuthenticated, handleLogout }) {
             <h3>
               <a
                 href="https://pgportal.gov.in"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={requireAuth}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 🏛️ GOVERNMENT PORTAL
@@ -210,19 +221,16 @@ export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
 
-  // check token on page load
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) setIsAuthenticated(true);
   }, []);
 
-  // handle login
   const handleLogin = () => {
     setIsAuthenticated(true);
     navigate("/");
   };
 
-  // handle logout
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
